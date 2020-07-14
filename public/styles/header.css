@@ -1,0 +1,30 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+.header {
+    height: 400px;
+    width: auto;
+    background-color: #c29334;
+    background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
+    display: flex;
+    flex-direction: column;
+
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
