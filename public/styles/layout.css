@@ -37,3 +37,40 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.new-tweet {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet-button {
+  background-color: #33C5FF;
+  color: #f4f1ec;
+  font-family: 'Bungee', cursive;
+  font-size: 22px;
+}
+
+.counter {
+  font-family: 'Bungee', cursive;
+  font-size: 18px;
+}
+
+.form-field {
+  display: flex;
+  width: 100%;
+
+}
+
+.submit-action {
+  display: flex;
+  padding: 1em;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.new-tweet-title {
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+}
