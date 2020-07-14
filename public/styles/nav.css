@@ -30,5 +30,8 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+
 
 }
