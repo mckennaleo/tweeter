@@ -8,8 +8,9 @@ html {
   }
 
 .header {
+    padding: 1em;
     height: 400px;
-    width: auto;
+    width: 100%;
     background-color: #c29334;
     background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
     display: flex;
