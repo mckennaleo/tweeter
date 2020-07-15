@@ -98,14 +98,16 @@ body {
 .tweet-display header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
 }
+
+
 
 .tweet-display footer {
   font-size: 15px;
   padding: 1em;
 }
+
 
 hr {
   align-self: center;
