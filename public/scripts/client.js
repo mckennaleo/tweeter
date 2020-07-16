@@ -50,47 +50,49 @@ $(document).ready(function () {
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     }
+
     //tweet html
     let $tweet = `
-  <article class="tweet">
-    <header>
-      <div class="user"> <img src=${tweetData.user.avatars}>
+      <article class="tweet">
+        <header>
+          <div class="user">  
+            <img src=${tweetData.user.avatars}>
             <p>${tweetData.user.name}</p>
-      </div>
-      <div class='handle'>${tweetData.user.handle}</div>
-    </header>
-    <body>
-      <p>${escape(tweetData.content.text)}</p>
-    </body>
-    <hr>
-    <footer>
-      <h4>${formatTime(tweetData.created_at)} </h4 >
-      <div class='icon-group'>
-        <i class="fa fa-flag" aria-hidden="true"></i>
-        <i class="fa fa-retweet"></i>
-        <i class="fa fa-heart"></i>
-      </div>
-    </footer >
-  </article >
-  <br>`
+          </div>
+          <div class='handle'>${tweetData.user.handle}</div>
+        </header>
+        <body>
+          <p>${escape(tweetData.content.text)}</p>
+        </body>
+        <hr>
+        <footer>
+          <h4>${formatTime(tweetData.created_at)} </h4 >
+          <div class='icon-group'>
+            <i class="fa fa-flag" aria-hidden="true"></i>
+            <i class="fa fa-retweet"></i>
+            <i class="fa fa-heart"></i>
+          </div>
+        </footer >
+      </article >
+      <br>`
     return $tweet;
   }
 
   //posting the tweets and error messages
   $(function () {
     const $button = $('.tweet-button');
+
     $button.on('click', function () {
       event.preventDefault()
       const serialized = $('.form-field').serialize();
-      // console.log('Button clicked, performing ajax call...');
-      console.log(serialized)
-      // console.log($('.form-field'))
+
       if (serialized.length > 140) {
         $('.error').text('Error! You have exceeded the character limit. Try making it more concise!')
         $('.error').animate({ opacity: 100 }, 1000);
         $('.error').animate({ opacity: 0 }, "slow");
         return;
       }
+
       if (serialized === "text=") {
         $('.error').text('Error! You have not written anything. Please let the world know what you think!')
         $('.error').animate({ opacity: 100 }, 1000);
