@@ -4,6 +4,35 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
+//How long ago function
+var periods = {
+  month: 30 * 24 * 60 * 60 * 1000,
+  week: 7 * 24 * 60 * 60 * 1000,
+  day: 24 * 60 * 60 * 1000,
+  hour: 60 * 60 * 1000,
+  minute: 60 * 1000
+};
+
+function formatTime(timeCreated) {
+  var diff = Date.now() - timeCreated;
+
+  if (diff > periods.month) {
+    return Math.floor(diff / periods.month) + "m ago";
+  } else if (diff > periods.week) {
+    return Math.floor(diff / periods.week) + "w ago";
+  } else if (diff > periods.day) {
+    return Math.floor(diff / periods.day) + "d ago";
+  } else if (diff > periods.hour) {
+    return Math.floor(diff / periods.hour) + "h ago";
+  } else if (diff > periods.minute) {
+    return Math.floor(diff / periods.minute) + "m ago";
+  }
+  return "Just now";
+}
+
+
+
 $(document).ready(function () {
 
   const renderTweets = function (tweets) {
@@ -21,6 +50,7 @@ $(document).ready(function () {
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     }
+    //tweet html
     let $tweet = `
   <article class="tweet">
   <header>
@@ -33,16 +63,21 @@ $(document).ready(function () {
   </body>
   <hr>
   <footer>
-    <div>on ${tweetData.created_at}</div>
-  </footer>
-  </article>
+    <h4>${formatTime(tweetData.created_at)} </h4 >
+<div class='icon-group'>
+  <i class="fa fa-flag" aria-hidden="true"></i>
+  <i class="fa fa-retweet"></i>
+  <i class="fa fa-heart"></i>
+</div>
+  </footer >
+  </article >
   <br>`
       ;
 
     return $tweet;
   }
 
-
+  //posting the tweets and error messages
   $(function () {
     const $button = $('.tweet-button');
     $button.on('click', function () {
