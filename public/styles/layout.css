@@ -39,9 +39,6 @@ body {
     margin: 200px;
   }
 }
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
 
 .error {
   border-style: solid;
@@ -121,6 +118,8 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .tweet-display footer {
@@ -135,6 +134,19 @@ body {
 .tweet-display footer div i {
   margin: 14px;
   font-size: 18px;
+}
+
+.handle {
+  color: lightseagreen;
+  opacity: 70%;
+  display: flex;
+  justify-self: flex-end;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 hr {

@@ -53,27 +53,26 @@ $(document).ready(function () {
     //tweet html
     let $tweet = `
   <article class="tweet">
-  <header>
-    <div><img src=${tweetData.user.avatars}></div>
-    <div><p>${tweetData.user.name}</p></div>
-    <div><p>${tweetData.user.handle}</p></div>
-  </header>
-  <body>
-    <p>${escape(tweetData.content.text)}</p>
-  </body>
-  <hr>
-  <footer>
-    <h4>${formatTime(tweetData.created_at)} </h4 >
-<div class='icon-group'>
-  <i class="fa fa-flag" aria-hidden="true"></i>
-  <i class="fa fa-retweet"></i>
-  <i class="fa fa-heart"></i>
-</div>
-  </footer >
+    <header>
+      <div class="user"> <img src=${tweetData.user.avatars}>
+            <p>${tweetData.user.name}</p>
+      </div>
+      <div class='handle'>${tweetData.user.handle}</div>
+    </header>
+    <body>
+      <p>${escape(tweetData.content.text)}</p>
+    </body>
+    <hr>
+    <footer>
+      <h4>${formatTime(tweetData.created_at)} </h4 >
+      <div class='icon-group'>
+        <i class="fa fa-flag" aria-hidden="true"></i>
+        <i class="fa fa-retweet"></i>
+        <i class="fa fa-heart"></i>
+      </div>
+    </footer >
   </article >
   <br>`
-      ;
-
     return $tweet;
   }
 
@@ -107,6 +106,8 @@ $(document).ready(function () {
       }
     });
   });
+
+  //Loading tweets on page
 
   const loadTweets = () => {
     $.ajax({
