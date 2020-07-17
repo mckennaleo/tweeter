@@ -6,7 +6,7 @@
 
 
 //How long ago function
-var periods = {
+const periods = {
   year: 12 * 30 * 24 * 60 * 60 * 1000,
   month: 30 * 24 * 60 * 60 * 1000,
   week: 7 * 24 * 60 * 60 * 1000,
@@ -16,7 +16,7 @@ var periods = {
 };
 
 function formatTime(timeCreated) {
-  var diff = Date.now() - timeCreated;
+  const diff = Date.now() - timeCreated;
 
   if (diff > periods.year) {
     if (Math.floor(diff / periods.year) === 1) {
