@@ -86,7 +86,7 @@ $(document).ready(function () {
       event.preventDefault()
       const serialized = $('.form-field').serialize();
 
-      if (serialized.length > 140) {
+      if (serialized.length > 145) {
         $('.error').text('Error! You have exceeded the character limit. Try making it more concise!')
         $('.error').animate({ opacity: 100 }, 1000);
         $('.error').animate({ opacity: 0 }, "slow");
