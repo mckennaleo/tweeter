@@ -7,6 +7,7 @@
 
 //How long ago function
 var periods = {
+  year: 12 * 30 * 24 * 60 * 60 * 1000,
   month: 30 * 24 * 60 * 60 * 1000,
   week: 7 * 24 * 60 * 60 * 1000,
   day: 24 * 60 * 60 * 1000,
@@ -17,16 +18,18 @@ var periods = {
 function formatTime(timeCreated) {
   var diff = Date.now() - timeCreated;
 
-  if (diff > periods.month) {
-    return Math.floor(diff / periods.month) + "m ago";
+  if (diff > periods.year) {
+    return Math.floor(diff / periods.year) + " years ago";
+  } else if (diff > periods.month) {
+    return Math.floor(diff / periods.month) + " months ago";
   } else if (diff > periods.week) {
-    return Math.floor(diff / periods.week) + "w ago";
+    return Math.floor(diff / periods.week) + " weeks ago";
   } else if (diff > periods.day) {
-    return Math.floor(diff / periods.day) + "d ago";
+    return Math.floor(diff / periods.day) + " days ago";
   } else if (diff > periods.hour) {
-    return Math.floor(diff / periods.hour) + "h ago";
+    return Math.floor(diff / periods.hour) + " hours ago";
   } else if (diff > periods.minute) {
-    return Math.floor(diff / periods.minute) + "m ago";
+    return Math.floor(diff / periods.minute) + " months ago";
   }
   return "Just now";
 }
