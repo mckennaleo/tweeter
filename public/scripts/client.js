@@ -19,17 +19,41 @@ function formatTime(timeCreated) {
   var diff = Date.now() - timeCreated;
 
   if (diff > periods.year) {
-    return Math.floor(diff / periods.year) + " years ago";
+    if (Math.floor(diff / periods.year) === 1) {
+      return "1 year ago";
+    } else {
+      return Math.floor(diff / periods.year) + " years ago";
+    }
   } else if (diff > periods.month) {
-    return Math.floor(diff / periods.month) + " months ago";
+    if (Math.floor(diff / periods.month) === 1) {
+      return "1 month ago";
+    } else {
+      return Math.floor(diff / periods.month) + " months ago";
+    }
   } else if (diff > periods.week) {
-    return Math.floor(diff / periods.week) + " weeks ago";
+    if (Math.floor(diff / periods.week) === 1) {
+      return "1 week ago";
+    } else {
+      return Math.floor(diff / periods.week) + " weeks ago";
+    }
   } else if (diff > periods.day) {
-    return Math.floor(diff / periods.day) + " days ago";
+    if (Math.floor(diff / periods.day) === 1) {
+      return "1 days ago";
+    } else {
+      return Math.floor(diff / periods.day) + " days ago";
+    }
   } else if (diff > periods.hour) {
-    return Math.floor(diff / periods.hour) + " hours ago";
+    if (Math.floor(diff / periods.hour) === 1) {
+      return "1 hour ago";
+    } else {
+      return Math.floor(diff / periods.hour) + " hours ago";
+    }
   } else if (diff > periods.minute) {
-    return Math.floor(diff / periods.minute) + " months ago";
+    if (Math.floor(diff / periods.minute) === 1) {
+      return "1 minute ago";
+    } else {
+      return Math.floor(diff / periods.minute) + " minutes ago";
+    }
   }
   return "Just now";
 }
@@ -91,14 +115,14 @@ $(document).ready(function () {
 
       if (serialized.length > 145) {
         $('.error').text('Error! You have exceeded the character limit. Try making it more concise!')
-        $('.error').animate({ opacity: 100 }, 1000);
+        $('.error').animate({ opacity: 100 }, 2000);
         $('.error').animate({ opacity: 0 }, "slow");
         return;
       }
 
       if (serialized === "text=") {
         $('.error').text('Error! You have not written anything. Please let the world know what you think!')
-        $('.error').animate({ opacity: 100 }, 1000);
+        $('.error').animate({ opacity: 100 }, 2000);
         $('.error').animate({ opacity: 0 }, "slow");
 
       } else {
