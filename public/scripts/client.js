@@ -106,10 +106,10 @@ $(document).ready(function () {
   }
 
   //posting the tweets and error messages
-  $(function () {
+  $(function newTweet() {
     const $button = $('.tweet-button');
 
-    $button.on('click', function () {
+    $button.on('click', function (event) {
       event.preventDefault()
       const serialized = $('.form-field').serialize();
 
@@ -117,7 +117,6 @@ $(document).ready(function () {
         $('.error').text('Error! You have exceeded the character limit. Try making it more concise!')
         $('.error').animate({ opacity: 100 }, 2000);
         $('.error').animate({ opacity: 0 }, "slow");
-        return;
       }
 
       if (serialized === "text=") {
@@ -130,9 +129,11 @@ $(document).ready(function () {
         $.ajax({
           type: 'POST',
           url: '/tweets',
-          data: serialized
-        }).then(loadTweets)
+          data: serialized,
+          success: loadTweets()
+        })
       }
+      setInterval(500)
     });
   });
 
