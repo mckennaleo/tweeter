@@ -117,12 +117,14 @@ $(document).ready(function () {
         $('.error').text('Error! You have exceeded the character limit. Try making it more concise!')
         $('.error').animate({ opacity: 100 }, 2000);
         $('.error').animate({ opacity: 0 }, "slow");
+        return;
       }
 
       if (serialized === "text=") {
         $('.error').text('Error! You have not written anything. Please let the world know what you think!')
         $('.error').animate({ opacity: 100 }, 2000);
         $('.error').animate({ opacity: 0 }, "slow");
+        return;
 
       } else {
         $('.form-field').val('');
